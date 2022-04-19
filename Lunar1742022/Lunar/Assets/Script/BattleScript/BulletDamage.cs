@@ -10,6 +10,7 @@ public class BulletDamage : MonoBehaviour
     SpriteRenderer ColorChange;
     public bool canReflect;
     public bool isReflect;
+    public int bulletDamage;
     public bool IsReflect
     {
         set
@@ -79,7 +80,7 @@ public class BulletDamage : MonoBehaviour
         {
             if (other.CompareTag("Enem"))
             {
-                other.SendMessage("GetAttack", 1);
+                other.SendMessage("GetAttack", bulletDamage);
                 GameManager.Instance.spawner.Despawn(this.gameObject);
                 Destroy(this.gameObject);
             }

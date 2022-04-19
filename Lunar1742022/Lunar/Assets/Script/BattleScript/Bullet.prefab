@@ -102,6 +102,7 @@ MonoBehaviour:
   speed: 0.01
   canReflect: 0
   isReflect: 0
+  bulletDamage: 20
 --- !u!61 &8901586612100671185
 BoxCollider2D:
   m_ObjectHideFlags: 0

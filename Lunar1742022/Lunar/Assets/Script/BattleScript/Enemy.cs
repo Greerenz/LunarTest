@@ -16,6 +16,8 @@ public class Enemy : MonoBehaviour
     //public GameObject Bullet;
     public float speed;
     public static bool EnemyAttack = false;
+    private int money;
+    bool dropcoin = false;
     private void Start()
     {
         wait = false;
@@ -26,14 +28,17 @@ public class Enemy : MonoBehaviour
         HpText.text = ("Hp " + MHP + "/" + HP);
        
     }
-
-
     private void Update()
     {
-
+   
         if (Hp < 1)
         {
             HpText.text = "Death";
+            if (!dropcoin)
+            {
+                coin();
+                dropcoin = true ;
+            }
         }
         else
         {
@@ -45,6 +50,7 @@ public class Enemy : MonoBehaviour
         ElementChange();
         ElementStatus.text = ("ElementGage " + MaxElemtGage + "/" + ElemtGage + ("\n") + "Now - " + ElementLADDER );
         ChangeElemental();
+        
     }
 
     public void ElementChange()
@@ -103,6 +109,15 @@ public class Enemy : MonoBehaviour
         
         yield return new WaitForSeconds(speed);
         wait = false;
+    }
+    public void coin() 
+    { 
+        if (Hp < 1)
+        {
+            PlayerPrefs.SetInt("Amount", PlayerPrefs.GetInt("Amount") + 1);
+            Debug.Log("coinreceive = "+ PlayerPrefs.GetInt("Amount"));
+        }    
+
     }
 
     void GetAttack(int ATTACK)
