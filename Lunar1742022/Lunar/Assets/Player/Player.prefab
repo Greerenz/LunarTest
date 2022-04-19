@@ -879,6 +879,7 @@ MonoBehaviour:
   levelsystem: {fileID: 519420035}
   inventory: {fileID: 1289332263}
   dialogue: {fileID: 519420037}
+  playermovement: {fileID: 6569501345995602553}
 --- !u!114 &519420035
 MonoBehaviour:
   m_ObjectHideFlags: 0
